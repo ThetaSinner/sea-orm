@@ -7,7 +7,7 @@ use crate::{
 use crate::{sqlx_error_to_exec_err, sqlx_error_to_query_err};
 use futures_util::lock::Mutex;
 #[cfg(feature = "sqlx-dep")]
-use sqlx::TransactionManager;
+use sqlx_core::transaction::TransactionManager;
 use std::{future::Future, pin::Pin, sync::Arc};
 use tracing::instrument;
 
@@ -300,7 +300,7 @@ impl ConnectionTrait for DatabaseTransaction {
 
     #[instrument(level = "trace")]
     #[allow(unused_variables)]
-    async fn execute_unprepared(&self, sql: &str) -> Result<ExecResult, DbErr> {
+    async fn execute_unprepared(&self, sql: &'static str) -> Result<ExecResult, DbErr> {
         debug_print!("{}", sql);
 
         match &mut *self.conn.lock().await {

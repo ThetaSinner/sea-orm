@@ -17,7 +17,7 @@ name = "sea_orm_codegen"
 path = "src/lib.rs"
 
 [dependencies]
-sea-query = { version = "1.0.0-rc.1", default-features = false, features = ["thread-safe"] }
+sea-query = { git = "https://github.com/ThetaSinner/sea-query.git", rev = "d1251fe00e0fb1847c4feb9bf320c68ec2befdda", default-features = false, features = ["thread-safe"] }
 syn = { version = "2", default-features = false, features = [
 	"parsing",
 	"proc-macro",

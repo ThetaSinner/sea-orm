@@ -153,7 +153,7 @@ impl SqlxSqlitePoolConnection {
 
     /// Execute an unprepared SQL statement on a SQLite backend
     #[instrument(level = "trace")]
-    pub async fn execute_unprepared(&self, sql: &str) -> Result<ExecResult, DbErr> {
+    pub async fn execute_unprepared(&self, sql: &'static str) -> Result<ExecResult, DbErr> {
         debug_print!("{}", sql);
 
         let conn = &mut self.pool.acquire().await.map_err(sqlx_conn_acquire_err)?;
@@ -304,7 +304,7 @@ pub(crate) fn sqlx_query(stmt: &Statement) -> sqlx::query::Query<'_, Sqlite, Sql
         .values
         .as_ref()
         .map_or(Values(Vec::new()), |values| values.clone());
-    sqlx::query_with(&stmt.sql, SqlxValues(values))
+    sqlx::query_with(sqlx::AssertSqlSafe(stmt.sql.clone()), SqlxValues(values))
 }
 
 pub(crate) async fn set_transaction_config(

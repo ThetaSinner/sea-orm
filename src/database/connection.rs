@@ -22,7 +22,7 @@ pub trait ConnectionTrait: Sync {
     }
 
     /// Execute a unprepared [Statement]
-    async fn execute_unprepared(&self, sql: &str) -> Result<ExecResult, DbErr>;
+    async fn execute_unprepared(&self, sql: &'static str) -> Result<ExecResult, DbErr>;
 
     /// Execute a [Statement] and return a single row of `QueryResult`
     async fn query_one_raw(&self, stmt: Statement) -> Result<Option<QueryResult>, DbErr>;

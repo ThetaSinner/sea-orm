@@ -20,12 +20,12 @@ pub async fn execute_unprepared(db: &DatabaseConnection) -> Result<(), DbErr> {
     use insert_default::*;
 
     db.execute_unprepared(
-        [
+        Box::leak([
             "INSERT INTO insert_default (id) VALUES (1), (2), (3), (4), (5)",
             "DELETE FROM insert_default WHERE id % 2 = 0",
         ]
         .join(";")
-        .as_str(),
+        .into_boxed_str()),
     )
     .await?;
 

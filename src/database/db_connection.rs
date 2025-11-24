@@ -150,7 +150,7 @@ impl ConnectionTrait for DatabaseConnection {
 
     #[instrument(level = "trace")]
     #[allow(unused_variables)]
-    async fn execute_unprepared(&self, sql: &str) -> Result<ExecResult, DbErr> {
+    async fn execute_unprepared(&self, sql: &'static str) -> Result<ExecResult, DbErr> {
         match &self.inner {
             #[cfg(feature = "sqlx-mysql")]
             DatabaseConnectionType::SqlxMySqlPoolConnection(conn) => {
