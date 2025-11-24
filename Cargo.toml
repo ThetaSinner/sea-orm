@@ -34,13 +34,13 @@ tracing = { version = "0.1", default-features = false, features = ["attributes",
 rust_decimal = { version = "1", default-features = false, optional = true }
 bigdecimal = { version = "0.4", default-features = false, optional = true }
 sea-orm-macros = { version = "~2.0.0-rc.18", path = "sea-orm-macros", default-features = false, features = ["strum"] }
-sea-query = { git = "https://github.com/ThetaSinner/sea-query.git", rev = "45ca61fe0f3d88fc76c884cbdd060a3648bb7bfd", default-features = false, features = ["thread-safe", "hashable-value", "backend-mysql", "backend-postgres", "backend-sqlite", "sea-orm"] }
-sea-schema = { version = "0.17.0-rc.15", default-features = false, features = ["discovery", "writer", "probe"], optional = true }
-sea-query-sqlx = { git = "https://github.com/ThetaSinner/sea-query.git", rev = "45ca61fe0f3d88fc76c884cbdd060a3648bb7bfd", default-features = false, optional = true }
+sea-query = { git = "https://github.com/ThetaSinner/sea-query.git", rev = "a84d9b49d517640a3dada04091bb50877a5c58b2", default-features = false, features = ["thread-safe", "hashable-value", "backend-mysql", "backend-postgres", "backend-sqlite", "sea-orm"] }
+sea-schema = { git = "https://github.com/ThetaSinner/sea-schema.git", rev = "37a76b265bf081f3977832d08267df13b629db4f", default-features = false, features = ["discovery", "writer", "probe"], optional = true }
+sea-query-sqlx = { git = "https://github.com/ThetaSinner/sea-query.git", rev = "a84d9b49d517640a3dada04091bb50877a5c58b2", default-features = false, optional = true }
 strum = { version = "0.27", default-features = false }
 serde = { version = "1.0", default-features = false }
 serde_json = { version = "1.0", default-features = false, optional = true }
-sqlx = { git = "https://github.com/launchbadge/sqlx.git", rev = "e8384f2a00173c2b120eea72e99d120557fced8b", default-features = false, optional = true }
+sqlx = { version = "0.9.0-alpha.1", default-features = false, optional = true }
 uuid = { version = "1", default-features = false, optional = true }
 pgvector = { version = "~0.4", default-features = false, optional = true }
 ipnetwork = { version = "0.20", default-features = false, optional = true }
