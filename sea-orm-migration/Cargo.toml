@@ -23,8 +23,8 @@ path = "src/lib.rs"
 async-trait = { version = "0.1", default-features = false }
 clap = { version = "4.3", features = ["env", "derive"], optional = true }
 dotenvy = { version = "0.15", default-features = false, optional = true }
-sea-orm = { git = "https://github.com/ThetaSinner/sea-schema.git", rev = "baf49e52d378af04441a2bdbb789242656a3a291", features = ["schema-sync"] }
-sea-orm-cli = { git = "https://github.com/ThetaSinner/sea-schema.git", rev = "baf49e52d378af04441a2bdbb789242656a3a291", default-features = false, optional = true }
+sea-orm = { git = "https://github.com/ThetaSinner/sea-schema.git", rev = "57142ae5915c6da0c14d13b46d3b84e13737c4ef", features = ["schema-sync"] }
+sea-orm-cli = { git = "https://github.com/ThetaSinner/sea-schema.git", rev = "57142ae5915c6da0c14d13b46d3b84e13737c4ef", default-features = false, optional = true }
 sea-schema = { git = "https://github.com/ThetaSinner/sea-schema.git", rev = "b5c15c23464dde0c91b3e82db2f264b99074dcab", default-features = false, features = ["discovery", "writer", "probe"] }
 tracing = { version = "0.1", default-features = false, features = ["log"] }
 tracing-subscriber = { version = "0.3.17", default-features = false, features = ["env-filter", "fmt"] }
