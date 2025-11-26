@@ -27,7 +27,7 @@ impl ConnectionTrait for SchemaManagerConnection<'_> {
         }
     }
 
-    async fn execute_unprepared(&self, sql: &str) -> Result<ExecResult, DbErr> {
+    async fn execute_unprepared(&self, sql: &'static str) -> Result<ExecResult, DbErr> {
         match self {
             SchemaManagerConnection::Connection(conn) => conn.execute_unprepared(sql).await,
             SchemaManagerConnection::Transaction(trans) => trans.execute_unprepared(sql).await,
